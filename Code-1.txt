@@ -1,0 +1,57 @@
+char val;
+
+#define RELAY1 8
+
+#define RELAY2 9
+
+void setup()
+
+{
+
+pinMode(RELAY1, OUTPUT);
+
+pinMode(RELAY2, OUTPUT);
+
+Serial.begin(9600);
+
+}
+
+void loop() {
+
+if( Serial.available() )
+
+{
+
+val = Serial.read();
+
+}
+
+switch (val) {
+
+case 'F':
+
+digitalWrite(RELAY1,LOW);
+
+break;
+
+case 'B':
+
+digitalWrite(RELAY1,HIGH);
+
+break;
+
+case 'L':
+
+digitalWrite(RELAY2,LOW);
+
+break;
+
+case 'R':
+
+digitalWrite(RELAY2,HIGH);
+
+break;
+
+}
+
+}
